@@ -5,9 +5,11 @@ import about from "./about.js";
 import "./style.css";
 
 // code to render the base of the homepage
+const body = document.querySelector('body');
+
 const buttonDiv = document.createElement("div");
 buttonDiv.id = "buttonDiv";
-const box= document.createElement("div");
+const box = document.createElement("div");
 box.id = "box";
 const content = document.getElementById("content");
 const header = document.getElementById("header");
@@ -23,37 +25,54 @@ taglineText.innerText = "Authentic Chonqing cuisine with a breathtaking view.";
 header.appendChild(headerText);
 header.appendChild(taglineText);
 
-// home button behaviour
+// creating the buttons
 const homeButton = document.createElement('button');
 homeButton.innerText = "Home";
-homeButton.addEventListener('click', ()=> {
-    refresh();
-    pageLoad();
-});
-
-// menu button behaviour
 const menuButton = document.createElement('button');
 menuButton.innerText = "Menu";
-menuButton.addEventListener("click", ()=> {
-    refresh();
-    menu();
-});
-
-
-// about button behaviour
 const aboutButton = document.createElement('button');
 aboutButton.innerText = "About";
-aboutButton.addEventListener("click", ()=> {
-    refresh();
-    about();
-});
+
 
 // appending the buttons
 buttonDiv.appendChild(homeButton);
 buttonDiv.appendChild(menuButton);
 buttonDiv.appendChild(aboutButton);
 
+// home button behaviour
+homeButton.addEventListener("click", () => {
+    refresh();
+    pageLoad();
+    homeButton.classList.add("selected");
+    menuButton.classList.remove("selected");
+    aboutButton.classList.remove("selected");
+});
+
+// menu button behaviour
+menuButton.addEventListener("click", () => {
+    refresh();
+    menu();
+    menuButton.classList.add("selected");
+    homeButton.classList.remove("selected");
+    aboutButton.classList.remove("selected");
+});
+
+
+// about button behaviour
+aboutButton.addEventListener("click", () => {
+    refresh();
+    about();
+    aboutButton.classList.add("selected");
+    homeButton.classList.remove("selected");
+    menuButton.classList.remove("selected");
+    
+});
+
+// to run when the page loads
 pageLoad();
+homeButton.classList.add("selected");
+
+
 
 
 
