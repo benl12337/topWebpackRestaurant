@@ -20,6 +20,13 @@ body {
     filter: blur(8px);
 }
 
+#header {
+    padding: 30px 120px;
+    border: 9px solid black;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 #buttonDiv {
     width: 500px;
 }
